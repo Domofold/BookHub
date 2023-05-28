@@ -5,20 +5,25 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class GUI {
+
+    private ArrayList<HashMap<String, String>> data = new ArrayList<>();
+
+    public ArrayList<HashMap<String, String>> getArray() {
+        return data;
+    }
 
     public static GridPane gP;
     public GUI(Stage stage) {
 
         AddBook btn = new AddBook("Add book");
-        GridPane root = new GridPane();
-        root.add(btn, 6, 6);
+        MyGrid root = new MyGrid(btn);
 
         ScrollPane scroll = new ScrollPane();
         scroll.setContent(root);
-
-
-
 
         gP = root;
 
