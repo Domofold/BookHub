@@ -8,7 +8,8 @@ public class AddBook extends Button {
         super(str);
 
         setOnAction(e -> {
-
+            MyDialog dialog = new MyDialog();
+            dialog.show();
         });
     }
 

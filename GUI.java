@@ -10,13 +10,26 @@ import java.util.HashMap;
 
 public class GUI {
 
-    private ArrayList<HashMap<String, String>> data = new ArrayList<>();
+    private int currRow = 0;
+    private int currColumn = 1;
 
-    public ArrayList<HashMap<String, String>> getArray() {
-        return data;
+    public int getRow() {
+        return currRow;
     }
 
-    public static GridPane gP;
+    public int getColumn() {
+        return currColumn;
+    }
+
+    public void setRow(int row) {
+        currRow = (currRow + 1 % 5);
+    }
+
+    public void setColumn(int row) {
+        currColumn = (currColumn % 5) + 1;
+    }
+
+    private static GridPane gP;
     public GUI(Stage stage) {
 
         AddBook btn = new AddBook("Add book");
