@@ -10,26 +10,31 @@ import java.util.HashMap;
 
 public class GUI {
 
-    private int currRow = 0;
-    private int currColumn = 1;
+    private static int currRow = 0;
+    private static int currColumn = 1;
+    private static GridPane gP;
 
-    public int getRow() {
+    public static int getRow() {
         return currRow;
     }
 
-    public int getColumn() {
+    public static int getColumn() {
         return currColumn;
     }
 
-    public void setRow(int row) {
+    public static void setRow(int row) {
         currRow = (currRow + 1 % 5);
     }
 
-    public void setColumn(int row) {
+    public static void setColumn(int row) {
         currColumn = (currColumn % 5) + 1;
     }
 
-    private static GridPane gP;
+    public static GridPane getGrid() {
+        return gP;
+    }
+
+
     public GUI(Stage stage) {
 
         AddBook btn = new AddBook("Add book");
@@ -46,9 +51,6 @@ public class GUI {
         stage.show();
     }
 
-    public static GridPane getGrid() {
-        return gP;
-    }
 
 
 }

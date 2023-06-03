@@ -9,7 +9,7 @@ public class MyDialog extends Dialog {
     public MyDialog() {
         super();
 
-        setTitle("Book info");
+        setTitle("Add book");
 
         Label label1 = new Label("Title: ");
         TextField title = new TextField();
@@ -28,6 +28,9 @@ public class MyDialog extends Dialog {
 
         Label label6 = new Label("Description: ");
         TextField description = new TextField();
+
+        Label label7 = new Label("Image path: ");
+        TextField image = new TextField();
 
         GridPane grid = new GridPane();
         grid.add(label1, 1, 1);
@@ -48,6 +51,9 @@ public class MyDialog extends Dialog {
         grid.add(label6, 1, 6);
         grid.add(description, 2, 6);
 
+        grid.add(label7, 1, 7);
+        grid.add(image, 2, 7);
+
         Button btn = new Button("Add");
         grid.add(btn, 3, 9);
 
@@ -57,6 +63,10 @@ public class MyDialog extends Dialog {
         ButtonType buttonTypeOk = new ButtonType("Leave", ButtonBar.ButtonData.OK_DONE);
         getDialogPane().getButtonTypes().add(buttonTypeOk);
 
+        btn.setOnAction(e -> {
+            GUI.getGrid().add(new Book("#000000", "#123456", title.getText(), author.getText(), year.getText(), rate.getText(),
+                    genre.getText(), description.getText(), image.getText()), GUI.getColumn(), GUI.getRow());
+        });
 
     }
 }
