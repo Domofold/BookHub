@@ -2,7 +2,9 @@ package com.example.bookhub;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.ImagePattern;
 
 public class MyDialog extends Dialog {
 
@@ -64,8 +66,16 @@ public class MyDialog extends Dialog {
         getDialogPane().getButtonTypes().add(buttonTypeOk);
 
         btn.setOnAction(e -> {
-            GUI.getGrid().add(new Book("#000000", "#123456", title.getText(), author.getText(), year.getText(), rate.getText(),
-                    genre.getText(), description.getText(), image.getText()), GUI.getColumn(), GUI.getRow());
+            Book book = new Book("#000000", "#123456", title.getText(), author.getText(), year.getText(), rate.getText(),
+                    genre.getText(), description.getText(), image.getText());
+            book.setFill(new ImagePattern(new Image(image.getText())));
+            book.setInfoStatus();
+            GUI.getGrid().add(book, GUI.getColumn(), GUI.getRow());
+
+            GUI.setColumn();
+            if (GUI.getColumn() == 1) {
+                GUI.setRow();
+            }
         });
 
     }

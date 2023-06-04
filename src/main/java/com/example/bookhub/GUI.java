@@ -22,11 +22,11 @@ public class GUI {
         return currColumn;
     }
 
-    public static void setRow(int row) {
+    public static void setRow() {
         currRow = (currRow + 1 % 5);
     }
 
-    public static void setColumn(int row) {
+    public static void setColumn() {
         currColumn = (currColumn % 5) + 1;
     }
 
