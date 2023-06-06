@@ -5,6 +5,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.paint.Paint;
 
 public class MyDialog extends Dialog {
 
@@ -68,7 +69,10 @@ public class MyDialog extends Dialog {
         btn.setOnAction(e -> {
             Book book = new Book("#000000", "#123456", title.getText(), author.getText(), year.getText(), rate.getText(),
                     genre.getText(), description.getText(), image.getText());
-            book.setFill(new ImagePattern(new Image(image.getText())));
+            if (image.getText().equals(""))
+                book.setFill(Paint.valueOf("#ffffff"));
+            else
+                book.setFill(new ImagePattern(new Image(image.getText())));
             book.setInfoStatus();
             GUI.getGrid().add(book, GUI.getColumn(), GUI.getRow());
 
